@@ -14,7 +14,7 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'https://i-tech-computer.vercel.app/' })); // Enable CORS for a specific origin
+app.use(cors()); // Enable CORS for all origins (less secure, use with caution)
 app.use(express.json()); // Enable body parser for JSON data
 
 // Serve static images from the 'uploads' directory
