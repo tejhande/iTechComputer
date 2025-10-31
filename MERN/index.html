@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ MERN Projects</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #FF5722;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .card button {
+      background: #FF5722;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0.3rem;
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .card button:hover {
+      background: #E64A19;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>⚡ MERN Projects</h1>
+    <p>Click "View Code" to open GitHub repo, or "View Live" to see the running project.</p>
+  </header>
+
+  <main>
+    <div class="grid-container" id="grid"></div>
+  </main>
+
+   <footer>
+    <p>Made with ❤️ by 
+      <a style="color: #fff;" href="https://tejashande.shop" target="_blank">Tejas Hande</a> 
+      | © 2025
+    </p>
+  </footer>
+
+  <script>
+    const projects = [
+      {
+        id: 1,
+        title: "Product Management App",
+        github: "https://github.com/tejhande/iTechComputer/tree/main/MERN/product-management-app",
+        live: "https://i-tech-computer.vercel.app/"
+      },
+      {
+        id: 2,
+        title: "Weather App",
+        github: "https://github.com/tejhande/iTechComputer/tree/main/MERN/weather-app",
+        live: "https://itechcomputer-weatherapp.onrender.com/"
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+
+    projects.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <h2>${p.title}</h2>
+        <button onclick="window.open('${p.github}', '_blank')">View Code</button>
+        <button onclick="window.open('${p.live}', '_blank')">View Live</button>
+      `;
+      grid.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>

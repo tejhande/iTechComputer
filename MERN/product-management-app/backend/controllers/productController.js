@@ -6,7 +6,7 @@ const path = require('path');
 // @route   GET /api/products
 // @access  Public
 const getProducts = async (req, res) => {
-  const pageSize = parseInt(req.query.pageSize) || 10; // Products per page
+  const pageSize = parseInt(req.query.pageSize) || 4; // Products per page
   const page = parseInt(req.query.pageNumber) || 1; // Current page number
 
   const keyword = req.query.keyword

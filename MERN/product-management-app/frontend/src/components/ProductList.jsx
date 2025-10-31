@@ -43,7 +43,7 @@ const ProductList = () => {
             )}
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <p className="price">${product.price.toFixed(2)}</p>
+            <p className="price">₹{product.price.toFixed(2)}</p>
             <div className="actions">
               <Link to={`/edit/${product._id}`} className="button">
                 Edit
