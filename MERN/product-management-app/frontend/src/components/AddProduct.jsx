@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import API from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
@@ -21,7 +21,7 @@ const AddProduct = () => {
     }
 
     try {
-      await axios.post('/api/products', formData, {
+      await API.post('/api/products', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

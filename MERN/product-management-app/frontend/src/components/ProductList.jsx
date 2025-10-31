@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import API from '../api';
 import { Link } from 'react-router-dom';
 
 const ProductList = () => {
@@ -13,7 +13,7 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get(`/api/products?pageNumber=${page}`);
+      const { data } = await API.get(`/api/products?pageNumber=${page}`);
       setProducts(data.products);
       setPages(data.pages);
     } catch (error) {
@@ -24,7 +24,7 @@ const ProductList = () => {
   const deleteProductHandler = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`/api/products/${id}`);
+        await API.delete(`/api/products/${id}`);
         fetchProducts(); // Refresh the list after deletion
       } catch (error) {
         console.error('Error deleting product:', error);
