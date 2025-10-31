@@ -4,78 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Assignments | Tejhande</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
-   <style>
+  <style>
     /* General */
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f7f9fb;
-  color: #222;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f7f9fb;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #0077ff, #00c6ff);
-  color: white;
-}
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(135deg, #0077ff, #00c6ff);
+      color: white;
+    }
 
-header h1 {
-  margin-bottom: 0.5rem;
-}
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
 
-main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  width: 90%;
-  max-width: 1000px;
-}
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      width: 90%;
+      max-width: 1000px;
+      margin-bottom: 2rem;
+    }
 
-.card {
-  background: white;
-  border-radius: 12px;
-  text-align: center;
-  padding: 2rem;
-  text-decoration: none;
-  color: #222;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
+    .card {
+      background: white;
+      border-radius: 12px;
+      text-align: center;
+      padding: 2rem;
+      text-decoration: none;
+      color: #222;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
 
-/* Different color accents */
-.card.web { border-top: 5px solid #007bff; }
-.card.mern { border-top: 5px solid #28a745; }
-.card.python { border-top: 5px solid #f7c100; }
-.card.sql { border-top: 5px solid #6f42c1; }
+    /* Different color accents */
+    .card.web { border-top: 5px solid #007bff; }
+    .card.mern { border-top: 5px solid #28a745; }
+    .card.python { border-top: 5px solid #f7c100; }
+    .card.sql { border-top: 5px solid #6f42c1; }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #222;
-  color: #fff;
-  font-size: 0.9rem;
-}
+    /* GitHub Button */
+    .github-btn {
+      display: inline-block;
+      background-color: #24292f;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
 
-   </style>
+    .github-btn:hover {
+      background-color: #0366d6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -105,10 +130,15 @@ footer {
         <p>Database queries and solutions</p>
       </a>
     </div>
+
+    <!-- GitHub Repo Button -->
+    <a href="https://github.com/tejhande/iTechComputer" target="_blank" class="github-btn">
+      ⭐ View Repo on GitHub
+    </a>
   </main>
 
   <footer>
-    <p>Made with ❤️ by <a style="color: #fff;" href="https://tejashande.shop">Tejas Hande</a> | © 2025</p>
+    <p>Made with ❤️ by <a href="https://tejashande.shop">Tejas Hande</a> | © 2025</p>
   </footer>
 </body>
 </html>
