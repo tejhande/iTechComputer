@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Assignments | Tejhande</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+   <style>
+    /* General */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f9fb;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #0077ff, #00c6ff);
+  color: white;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  padding: 2rem;
+  text-decoration: none;
+  color: #222;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Different color accents */
+.card.web { border-top: 5px solid #007bff; }
+.card.mern { border-top: 5px solid #28a745; }
+.card.python { border-top: 5px solid #f7c100; }
+.card.sql { border-top: 5px solid #6f42c1; }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+   </style>
+</head>
+<body>
+  <header>
+    <h1>💻 My Assignment Portfolio</h1>
+    <p>Explore my practicals and projects from different technologies.</p>
+  </header>
+
+  <main>
+    <div class="grid-container">
+      <a href="WebProgramming/WebProgramming/index.html" class="card web">
+        <h2>🌐 Web Programming</h2>
+        <p>HTML, CSS, JS practicals</p>
+      </a>
+
+      <a href="MERN/" class="card mern">
+        <h2>⚛️ MERN Stack</h2>
+        <p>React, Node.js, Express & MongoDB apps</p>
+      </a>
+
+      <a href="Python/python-practicals/" class="card python">
+        <h2>🐍 Python Practicals</h2>
+        <p>Basic to advanced Python exercises</p>
+      </a>
+
+      <a href="SQL/" class="card sql">
+        <h2>🗃️ SQL Practicals</h2>
+        <p>Database queries and solutions</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ by <a style="color: #fff;" href="https://tejashande.shop">Tejas Hande</a> | © 2025</p>
+  </footer>
+</body>
+</html>
