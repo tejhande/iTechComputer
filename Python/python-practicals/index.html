@@ -1,204 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python Practicals | Tejhande</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🐍 Python Practicals | Tejas Hande</title>
   <style>
     body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-  color: #222;
-}
+      font-family: "Poppins", sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
 
-/* Lightbox overlay */
-#lightbox {
-  position: fixed;
-  display: none;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #306998;
+      color: white;
+    }
 
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  cursor: pointer;
-}
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
 
-header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #306998; /* Python blue */
-  color: white;
-}
+    main {
+      padding: 2rem;
+    }
 
-header h1 {
-  margin-bottom: 0.5rem;
-}
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
 
-main {
-  padding: 2rem;
-}
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
 
-.card {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
+    .card button {
+      background: #306998;
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-.card h2 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-}
+    .card button:hover {
+      background: #204f7a;
+    }
 
-.card a {
-  display: inline-block;
-  margin-bottom: 0.8rem;
-  color: #306998;
-  text-decoration: none;
-  font-weight: bold;
-}
+    .card img {
+      max-width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 0.8rem;
+      cursor: pointer;
+    }
 
-.card a:hover {
-  text-decoration: underline;
-}
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: #fff;
+    }
 
-.card img {
-  max-width: 100%;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+    /* Fullscreen Code Viewer */
+    #codeModal {
+      position: fixed;
+      display: none;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 1rem;
+    }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #222;
-  color: #fff;
-}
+    #codeModal header {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
 
+    #codeBox {
+      background: #1e1e1e;
+      color: #eee;
+      width: 90%;
+      height: 75%;
+      overflow-y: auto;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: left;
+      white-space: pre-wrap;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      font-family: Consolas, monospace;
+    }
+
+    #modalButtons {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    #modalButtons button {
+      background: #306998;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    #modalButtons button:hover {
+      background: #1f4d70;
+    }
+
+    /* Lightbox overlay for screenshots */
+    #lightbox {
+      position: fixed;
+      display: none;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
   <header>
     <h1>🐍 Python Practicals</h1>
-    <p>Click on the code link to view the script, or see the output screenshot below.</p>
+    <p>Click “View Code” to open fullscreen or click the image to enlarge.</p>
   </header>
 
   <main>
-    <div class="grid-container">
-      <!-- Q1 -->
-      <div class="card">
-        <h2>Q1 - Prime Number</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q1_prime.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q1_prime.png" alt="Q1 Screenshot">
-      </div>
-
-      <!-- Q2 -->
-      <div class="card">
-        <h2>Q2 - List Difference</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q2_list_difference.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q2_list_difference.png" alt="Q2 Screenshot">
-      </div>
-
-      <!-- Q3 -->
-      <div class="card">
-        <h2>Q3 - String Ending with 'ing'</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q3_ing_string.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q3_ing_string.png" alt="Q3 Screenshot">
-      </div>
-
-      <!-- Q4 -->
-      <div class="card">
-        <h2>Q4 - Unique Dictionary Values</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q4_dict_unique.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q4_dict_unique.png" alt="Q4 Screenshot">
-      </div>
-
-      <!-- Q5 -->
-      <div class="card">
-        <h2>Q5 - Arithmetic Exception</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q5_arithmetic_exception.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q5_arithmetic_exception.png" alt="Q5 Screenshot">
-      </div>
-
-      <!-- Q6 -->
-      <div class="card">
-        <h2>Q6 - File Copy</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q6_file_copy.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q6_file_copy.png" alt="Q6 Screenshot">
-      </div>
-
-      <!-- Q7 -->
-      <div class="card">
-        <h2>Q7 - Unique List</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q7_unique_list.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q7_unique_list.png" alt="Q7 Screenshot">
-      </div>
-
-      <!-- Q8 -->
-      <div class="card">
-        <h2>Q8 - Tkinter Login</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q8_tkinter_login.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q8_tkinter_login.png" alt="Q8 Screenshot">
-      </div>
-
-      <!-- Q9 -->
-      <div class="card">
-        <h2>Q9 - MySQL Insert</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q9_mysql_insert.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q9_mysql_insert.png" alt="Q9 Screenshot">
-      </div>
-
-      <!-- Q10 -->
-      <div class="card">
-        <h2>Q10 - MySQL Search</h2>
-        <a href="https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/Q10_mysql_search.py" target="_blank">View Code</a>
-        <img src="https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/Q10_mysql_search.png" alt="Q10 Screenshot">
-      </div>
-
-    </div>
+    <div class="grid-container" id="grid"></div>
   </main>
 
   <footer>
-    <p>Made with ❤️ by <a style="color: #fff;" href="https://tejashande.shop">Tejas Hande</a> | © 2025</p>
+    <p>Made with ❤️ by 
+      <a style="color: #fff;" href="https://tejashande.shop" target="_blank">Tejas Hande</a> 
+      | © 2025
+    </p>
   </footer>
 
-  <div id="lightbox" onclick="this.style.display='none'">
-  <img id="lightbox-img" src="" alt="Fullscreen">
-</div>
+  <!-- Code Viewer Modal -->
+  <div id="codeModal">
+    <header id="codeTitle">Loading...</header>
+    <div id="modalButtons">
+      <button onclick="copyCode()">📋 Copy Code</button>
+      <button onclick="closeCode()">❌ Close</button>
+    </div>
+    <pre id="codeBox">Fetching code...</pre>
+  </div>
 
-</body>
+  <!-- Lightbox for images -->
+  <div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="Fullscreen">
+  </div>
+
 <script>
-document.querySelectorAll('.card img').forEach(img => {
-  img.addEventListener('click', () => {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    lightboxImg.src = img.src;
-    lightbox.style.display = 'flex';
-  });
+const practicals = [
+  { id: 1, title: "Prime Number", file: "Q1_prime.py", img: "Q1_prime.png" },
+  { id: 2, title: "List Difference", file: "Q2_list_difference.py", img: "Q2_list_difference.png" },
+  { id: 3, title: "String Ending with 'ing'", file: "Q3_ing_string.py", img: "Q3_ing_string.png" },
+  { id: 4, title: "Unique Dictionary Values", file: "Q4_dict_unique.py", img: "Q4_dict_unique.png" },
+  { id: 5, title: "Arithmetic Exception", file: "Q5_arithmetic_exception.py", img: "Q5_arithmetic_exception.png" },
+  { id: 6, title: "File Copy", file: "Q6_file_copy.py", img: "Q6_file_copy.png" },
+  { id: 7, title: "Unique List", file: "Q7_unique_list.py", img: "Q7_unique_list.png" },
+  { id: 8, title: "Tkinter Login", file: "Q8_tkinter_login.py", img: "Q8_tkinter_login.png" },
+  { id: 9, title: "MySQL Insert", file: "Q9_mysql_insert.py", img: "Q9_mysql_insert.png" },
+  { id: 10, title: "MySQL Search", file: "Q10_mysql_search.py", img: "Q10_mysql_search.png" }
+];
+
+const grid = document.getElementById("grid");
+// const baseRaw = "https://raw.githubusercontent.com/tejhande/iTechComputer/main/Python/python-practicals/";
+const baseRaw = "https://raw.githubusercontent.com/tejhande/iTechComputer/refs/heads/main/Python/python-practicals/";
+
+practicals.forEach(p => {
+  const div = document.createElement("div");
+  div.className = "card";
+
+  // For Q3, keep button styling but redirect to GitHub
+  if (p.id === 3) {
+    div.innerHTML = `
+      <h2>Q${p.id} - ${p.title}</h2>
+      <button onclick="window.open('https://github.com/tejhande/iTechComputer/blob/main/Python/python-practicals/${p.file}', '_blank')">
+        View Code
+      </button>
+      <img src="${baseRaw}${p.img}" alt="${p.title}" />
+    `;
+  } else {
+    div.innerHTML = `
+      <h2>Q${p.id} - ${p.title}</h2>
+      <button onclick="viewCode('${p.file}', 'Q${p.id} - ${p.title}')">View Code</button>
+      <img src="${baseRaw}${p.img}" alt="${p.title}" />
+    `;
+  }
+
+  grid.appendChild(div);
+});
+
+
+
+async function viewCode(filename, title) {
+  const modal = document.getElementById("codeModal");
+  const pre = document.getElementById("codeBox");
+  const header = document.getElementById("codeTitle");
+
+  header.textContent = title;
+  pre.textContent = "Loading...";
+  modal.style.display = "flex";
+
+  try {
+    const response = await fetch(baseRaw + filename, { mode: 'cors' });
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    const text = await response.text();
+    pre.textContent = text;
+  } catch (err) {
+    pre.textContent = "⚠️ Failed to load code: " + err.message;
+  }
+}
+
+
+function copyCode() {
+  const text = document.getElementById("codeBox").textContent;
+  navigator.clipboard.writeText(text)
+    .then(() => alert("✅ Code copied to clipboard!"))
+    .catch(() => alert("⚠️ Failed to copy code"));
+}
+
+function closeCode() {
+  document.getElementById("codeModal").style.display = "none";
+}
+
+document.addEventListener("click", e => {
+  if (e.target.tagName === "IMG" && e.target.closest(".card")) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    lightboxImg.src = e.target.src;
+    lightbox.style.display = "flex";
+  }
 });
 </script>
 
+</body>
 </html>
