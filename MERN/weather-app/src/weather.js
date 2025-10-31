@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
+import "./Weather.css"; // Import the crazy CSS
 
 const Weather = () => {
   const [city, setCity] = useState(""); // To store user input
   const [weather, setWeather] = useState(null); // To store fetched weather data
   const [error, setError] = useState("");
 
-  const API_KEY = "9ba117d7b701fe3a0858251fa02c1479"; // Replace with your OpenWeatherMap API key
-
+  const API_KEY = "9ba117d7b701fe3a0858251fa02c1479"; // 
   useEffect(() => {
     if (city === "") return; // Don't fetch if city is empty
 
@@ -38,17 +38,18 @@ const Weather = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div className="weather-app">
       <h1>Weather App</h1>
       <input
+        className="city-input"
         type="text"
         value={city}
         onChange={handleInputChange}
         placeholder="Enter city name"
       />
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
       {weather && (
-        <div>
+        <div className="weather-info">
           <h2>{weather.name}, {weather.sys.country}</h2>
           <p>Temperature: {weather.main.temp} °C</p>
           <p>Weather: {weather.weather[0].description}</p>

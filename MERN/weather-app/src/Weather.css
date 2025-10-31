@@ -1,0 +1,60 @@
+/* Crazy Weather App CSS */
+.weather-app {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: radial-gradient(circle at 30% 30%, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    animation: bgPulse 10s infinite alternate;
+    text-align: center;
+    min-height: 100vh;
+    padding: 50px;
+    color: #fff;
+}
+
+@keyframes bgPulse {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    color: #ffff00;
+    text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+    animation: rotateHue 5s linear infinite;
+}
+
+@keyframes rotateHue {
+    0% {filter: hue-rotate(0deg);}
+    100% {filter: hue-rotate(360deg);}
+}
+
+.city-input {
+    padding: 15px;
+    font-size: 1.2em;
+    border: 3px dashed #fff;
+    border-radius: 20px;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    animation: inputBounce 2s infinite;
+}
+
+@keyframes inputBounce {
+    0%, 100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+}
+
+.weather-info {
+    margin-top: 30px;
+    font-size: 1.5em;
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 30px #fff, 0 0 60px #f0f, 0 0 90px #0ff;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {box-shadow: 0 0 30px #fff, 0 0 60px #f0f, 0 0 90px #0ff;}
+    100% {box-shadow: 0 0 50px #ff0, 0 0 80px #0f0, 0 0 100px #f0f;}
+}
