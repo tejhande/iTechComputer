@@ -88,7 +88,7 @@ const EditProduct = () => {
           <label htmlFor="image">Current Image</label>
           {existingImage && (
             <img
-              src={`http://localhost:5000${existingImage}`}
+              src={`https://product-tejas-itech.onrender.com${existingImage}`}
               alt="Product Image"
               style={{ maxWidth: '100px', maxHeight: '100px', display: 'block', marginBottom: '10px' }}
             />

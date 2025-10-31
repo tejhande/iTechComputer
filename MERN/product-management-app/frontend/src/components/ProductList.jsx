@@ -39,7 +39,7 @@ const ProductList = () => {
         {products.map((product) => (
           <div key={product._id} className="product-card">
             {product.image && (
-              <img src={`http://localhost:5000${product.image}`} alt={product.name} />
+              <img src={`https://product-tejas-itech.onrender.com${product.image}`} alt={product.name} />
             )}
             <h3>{product.name}</h3>
             <p>{product.description}</p>
